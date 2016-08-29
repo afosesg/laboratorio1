@@ -14,7 +14,9 @@ public class GuessingGame {
     int guess;
     int numGuesses;
    
-
+    /**
+     *
+     */
     public GuessingGame() {
    
         answer = (int)Math.floor((Math.random()*100)+1);
@@ -51,8 +53,8 @@ public class GuessingGame {
     
 public static void main (String [] args){
     String playAgain = "y";
-    if (playAgain=="y"){
-       //GuessingGame();
+    while (playAgain.equals("y")){
+       //TODO GuessingGame();
     System.out.println("Would you like play another game(y/n)");
     java.util.Scanner lectura= new java.util.Scanner(System.in);
     playAgain=lectura.next();

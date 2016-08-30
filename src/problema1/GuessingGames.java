@@ -9,7 +9,7 @@ package problema1;
  *
  * @author Usuario
  */
-public class GuessingGame {
+public class GuessingGames {
     int answer;
     int guess;
     int numGuesses;
@@ -17,13 +17,16 @@ public class GuessingGame {
     /**
      *
      */
-    public GuessingGame() {
+    public static void guessingGame() {
+         int answer;
+         int guess;
+         int numGuesses;
    
         answer = (int)Math.floor((Math.random()*100)+1);
         guess=0;
         
         
-          for(numGuesses=1;numGuesses>7 || guess==answer;numGuesses++){
+          for(numGuesses=1;numGuesses>7 || guess==answer; numGuesses++){
               
               if (numGuesses>7){
                   System.out.println("You Loser");
@@ -54,7 +57,7 @@ public class GuessingGame {
 public static void main (String [] args){
     String playAgain = "y";
     while (playAgain.equals("y")){
-       //TODO GuessingGame();
+        guessingGame();
     System.out.println("Would you like play another game(y/n)");
     java.util.Scanner lectura= new java.util.Scanner(System.in);
     playAgain=lectura.next();

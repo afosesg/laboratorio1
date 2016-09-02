@@ -10,71 +10,37 @@ package problema2parte2;
  * @author Usuario
  */
 public class TiendaLibros {
-    
- private Libro [] coleccion;
- private Libro [] carritoCompra;
- private Libro escogido;
- private int cantidadLibroEscogido;
- private int subtotal,total;
 
-    public TiendaLibros(Libro[] coleccion) {
-        this.coleccion = coleccion;
-        
-        
-      
-    }
- 
- public Libro[] darLibrosCatalogo(){
-     return coleccion;
- }
- public void buscarAgregaLibroCarritoIsbn(int pIsbn, int cantidad){
-
-     for (int i = 0; i < coleccion.length; i++) {
-            if(coleccion [i].darIsbn()==pIsbn){
-                System.out.println("desea agregar al carrito?? (y/n)");
-                java.util.Scanner lec=new java.util.Scanner(System.in);
-                String agregar=lec.next();
-                if(agregar.equals("y")){
-                escogido=coleccion[i];
-                cantidadLibroEscogido=cantidad;
-                subtotal=escogido.darPrecio()*cantidadLibroEscogido;
-                total+=subtotal;
-                    System.out.println("el subtotal de la compra de libros escogidos es: "+subtotal);
-                    System.out.println("el total de la compra de libros escogidos es: "+total);
-                int contador=0;
-                carritoCompra [contador]=escogido;
-                contador++;
-                    System.out.println("se agrego al carrito el libro: "+escogido.darTitulo());
+    public static void main (String [] args){
+        String []coleccionNombreLibros=new String[30];
+        String []carritoCompra=new String[30];
+        int[]precios=new int[30];
+        int subtotal=0, total=0;
+        String buscado;
+        String termino="y";
+        java.util.Scanner lec= new java.util.Scanner(System.in);
+        while(termino.equals("y")){
+        for (int i = 0; i < coleccionNombreLibros.length; i++) {
+            String seleccionado=coleccionNombreLibros[i];
+            System.out.println("ingrese el nombre del libro que busca");
+            buscado=lec.next();
+            if(buscado.equals(seleccionado)){
+                System.out.println("desea agregarlo?? (y/n)");
+                String desicion=lec.next();
+                if(desicion.equals("y")){
+                    System.out.println("cuantos desea llevar??");
+                    int cantidad=lec.nextInt();
+                    carritoCompra[i]=seleccionado;
+                    subtotal=(cantidad* precios[i]);
+                    System.out.println("el subtotal de la compra es "+subtotal+" y la cantidad que agrego es de: "+cantidad);
+                    total+=subtotal;
+                    System.out.println("ha terminado su compra? (y/n)");
+                    termino=lec.next();
                 }
-                
             }
-            else{
-                System.out.println("no existe el libro con el ISBN indicado");
-            }
-     
-        }  
-     
- }
- 
-public Libro[] darLibrosCarrito(){
-    return carritoCompra;
-}   
-public void eliminarLibroCarritoIsbn(int isbn){
-         for (int i = 0; i < carritoCompra.length; i++) {
-            if(carritoCompra [i].darIsbn()==isbn){
-                carritoCompra [i]=null;
-                System.out.println("se elimino correctamente el libro del carrito de compra");
-            }
-            
+            System.out.println("el libro buscado: "+buscado+" no esta en el catalogo");
         }
     }
-    
-public static void main(String []args){
-    Libro coleccion[]=null;
-    
-    System.out.println("observe el catalogo y identifique el ISBN del libro que desea agregar al carrito");
-    for (int i = 0; i < coleccion.length; i++) {
-        
-    }
-}
+        System.out.println(" el total por la compra es "+total);
+   }
 }

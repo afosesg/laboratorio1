@@ -161,6 +161,32 @@ public class Diccionario {
                 
             }
         }
+        else if(entrada.equals("italiano")&& salida.equals("frances")){
+            for (int i = 0; i < cantidad; i++) {
+                for (int j = 0; j < espanolItaliano.length; j++) {
+                 if(buscada[i].equals(espanolItaliano[j])){;
+                 String temp=espanolItaliano[j];
+                    for (int k = 0; k < espanolFrances.length; k++) {
+                    if( temp.equals(espanolFrances[j])){
+                        traducida[i]=espanolFrances[j]; 
+                    }    
+                    }
+                
+                 }
+                }       
+                
+            }
+        }
+        else if(entrada.equals("italiano")&& salida.equals("espanol")){
+            for (int i = 0; i < cantidad; i++) {
+                for (int j = 0; j < espanolItaliano.length; j++) {
+                 if(buscada[i].equals(espanolItaliano[j])){;
+                traducida[i]=espanolItaliano[j];    
+                 }
+                }       
+                
+            }
+        }
         for(int i=0; i < cantidad; i++){
     System.out.println("la traduccion es: "+traducida[i]);
         }

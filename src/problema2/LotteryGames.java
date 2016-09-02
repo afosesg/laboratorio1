@@ -6,8 +6,8 @@
 package problema2;
 
 /**
- *
- * @author Usuario
+ *clase que representara las loterias
+ * @author Usuario 
  */
 public class LotteryGames {
     
